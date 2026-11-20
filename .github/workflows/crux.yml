@@ -15,5 +15,3 @@ jobs:
       - uses: ZEUSXXIV/crux-action@main
         with:
           migrations: db/migrations
-          # Until a Crux release carries the Linux build, the test uses one kept in this repository.
-          crux: tools/crux-linux-x64.tar.gz
