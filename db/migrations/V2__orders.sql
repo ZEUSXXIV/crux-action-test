@@ -1,0 +1,8 @@
+CREATE TABLE dbo.Orders (
+    Id INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    CustomerId INT NOT NULL REFERENCES dbo.Customers (Id),
+    Total DECIMAL(12, 2) NOT NULL,
+    PlacedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME()
+);
+GO
+CREATE INDEX IX_Orders_CustomerId ON dbo.Orders (CustomerId);

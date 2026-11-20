@@ -1,0 +1,19 @@
+name: Crux
+on: pull_request
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  migrations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: ZEUSXXIV/crux-action@main
+        with:
+          migrations: db/migrations
+          # Until a Crux release carries the Linux build, the test uses one kept in this repository.
+          crux: tools/crux-linux-x64.tar.gz
